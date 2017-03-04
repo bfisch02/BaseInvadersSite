@@ -79,7 +79,7 @@ function repaint(init) {
             return b.score - a.score;
         });
         for (var i = 0; i < tempPlayers.length; i++) {
-            tableWidgets[i][0].attr("img", 'ship' + (tempPlayers[i].id % 60) + '.png');
+            tableWidgets[i][0].attr("img", shipImages[tempPlayers[i].id % 60]);
             tableWidgets[i][1].text(tempPlayers[i].name);
             tableWidgets[i][2].text(tempPlayers[i].score);
             pmap[state.players[i].name] = tempPlayers[i];
