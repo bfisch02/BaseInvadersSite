@@ -75,11 +75,14 @@ function repaint(init) {
             i++;
         });
     } else {
-        for (var i = 0; i < state.players.length; i++) {
-            tableWidgets[i][0].attr("img", 'ship' + (state.players[i].id % 60) + '.png');
-            tableWidgets[i][1].text(state.players[i].name);
-            tableWidgets[i][2].text(state.players[i].score);
-            pmap[state.players[i].name] = state.players[i];
+        var tempPlayers = state.players.sort(function (a, b) {
+            return b.score - a.score;
+        });
+        for (var i = 0; i < tempPlayers.length; i++) {
+            tableWidgets[i][0].attr("img", 'ship' + (tempPlayers[i].id % 60) + '.png');
+            tableWidgets[i][1].text(tempPlayers[i].name);
+            tableWidgets[i][2].text(tempPlayers[i].score);
+            pmap[state.players[i].name] = tempPlayers[i];
         }
     }
 
