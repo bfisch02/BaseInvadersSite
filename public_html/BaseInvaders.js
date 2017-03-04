@@ -79,7 +79,7 @@ function repaint(init) {
             return b.score - a.score;
         });
         for (var i = 0; i < tempPlayers.length; i++) {
-            tableWidgets[i][0].attr("img", shipImages[tempPlayers[i].id % 60]);
+            tableWidgets[i][0].attr("src", 'ship' + (tempPlayers[i].id % 60) + '.png');
             tableWidgets[i][1].text(tempPlayers[i].name);
             tableWidgets[i][2].text(tempPlayers[i].score);
             pmap[state.players[i].name] = tempPlayers[i];
@@ -107,7 +107,7 @@ function repaint(init) {
             console.log("pbig");
             g2x.fillStyle = "#FF0000";
             g2x.beginPath();
-            g2x.arc(bomb.px * widthRatio, bomb.py * heightRatio, state.bombRadius * Math.max(widthRatio, heightRatio), 0, Math.PI * 2);
+            g2x.arc(bomb.px * widthRatio, bomb.py * heightRatio, stroke * state.bombRadius * Math.max(widthRatio, heightRatio), 0, Math.PI * 2);
             g2x.fill();
         } else {
             console.log("psmall", bomb.delay, bomb.life);
