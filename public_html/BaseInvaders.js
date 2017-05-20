@@ -146,7 +146,7 @@ $(document).ready(function () {
     }
 
     var init = true;
-    var ws = new WebSocket("ws://codebb.cloudapp.net:17427");
+    var ws = new WebSocket("ws://34.225.107.187:17427");
     ws.onopen = function (evt) {
         console.log(evt);
     };
