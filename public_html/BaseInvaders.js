@@ -125,6 +125,13 @@ function repaint(init) {
         g2x.rotate(Math.atan2(player.vy, player.vx) + Math.PI / 2);
         g2x.drawImage(shipImages[player.id % 60], -stroke * 1.2, -stroke * 1.2, stroke * 2.4, stroke * 2.4);
         g2x.setTransform(1, 0, 0, 1, 0, 0);
+        g2x.fillStyle = "#FFFF00";
+        var radarSize = ((Date.now() / 15) + (player.id * 30)) % 500;
+        if (radarSize < 100) {
+            g2x.beginPath();
+            g2x.arc(player.px * widthRatio, player.py * widthRatio, radarSize, 0, Math.PI * 2);
+            g2x.stroke();
+        }
     });
 
     function fill(inp, len, char) {
