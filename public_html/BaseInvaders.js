@@ -134,6 +134,13 @@ function repaint(init) {
         }
     });
 
+    state.wormholes.forEach(function (wormhole) {
+        g2x.beginPath();
+        g2x.fillStyle = "#FFF000";
+        g2x.arc(wormhole.px * widthRatio, wormhole.py * heightRatio, wormhole.radius * widthRatio, 0, Math.PI * 2);
+        g2x.stroke();
+    });
+
     function fill(inp, len, char) {
         inp += "";
         while (inp.length < len) {
@@ -153,7 +160,7 @@ $(document).ready(function () {
     }
 
     var init = true;
-    var ws = new WebSocket("ws://34.225.107.187:17427");
+    var ws = new WebSocket("ws://100.71.19.160:17429");
     ws.onopen = function (evt) {
         console.log(evt);
     };
