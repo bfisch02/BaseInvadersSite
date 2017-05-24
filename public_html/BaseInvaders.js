@@ -168,7 +168,7 @@ function repaint(init) {
     });
 
     state.bombs.forEach(function (bomb) {
-        if (bomb.delay - 5 < bomb.life) {
+        if (bomb.delay != -1 && bomb.delay - 5 < bomb.life) {
             g2x.fillStyle = "#FF0000";
             g2x.beginPath();
             g2x.arc(bomb.px * widthRatio, bomb.py * heightRatio, stroke * 3.6, 0, Math.PI * 2);
